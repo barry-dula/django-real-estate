@@ -38,7 +38,7 @@ class GetProfileAPIView(APIView):
     renderer_classes = [ProfileJSONRenderer]
 
     def get(self, request):
-        #instance of a user
+        # instance of a user
         user = self.request.user
         user_profile = Profile.objects.get(user=user)
         serializer = ProfileSerializer(user_profile, context={"request": request})
